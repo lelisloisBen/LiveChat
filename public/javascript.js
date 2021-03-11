@@ -27,17 +27,23 @@ window.onload = setTimeout(function(){
   if (!user) {
     // Ask for the username if there is none set already
       // user = prompt('Choose a name:');
-      user = swal("Choose a name:", {
+      swal("Choose a name:", {
         content: "input",
       })
-    if (!user) {
-      alert('We cannot work with you like that!');
-    } else {
-      // Store it in the Local Storafe for future use
-      localStorage.setItem('user', user)
-      document.getElementById('inputMessage').disabled = false;
-      document.getElementById('buttonMessage').disabled = false;
-    }
+      .then((value) => {
+        user = value
+        localStorage.setItem('user', user)
+        document.getElementById('inputMessage').disabled = false;
+        document.getElementById('buttonMessage').disabled = false;
+      });
+    // if (!user) {
+    //   alert('We cannot work with you like that!');
+    // } else {
+    //   // Store it in the Local Storafe for future use
+    //   localStorage.setItem('user', user)
+    //   document.getElementById('inputMessage').disabled = false;
+    //   document.getElementById('buttonMessage').disabled = false;
+    // }
   }
 }, 10000);
 
