@@ -22,7 +22,8 @@ main {
 h1, .user-count {
   margin: 0;
   padding: 10px 0;
-  font-size: 32px;
+  font-size: 30px;
+  color: purple;
 }
 
 .user-count {
