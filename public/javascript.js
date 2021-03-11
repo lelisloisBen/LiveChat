@@ -27,7 +27,7 @@ window.onload = setTimeout(function(){
       localStorage.setItem('user', user)
     }
   }
-}, 5000);
+}, 10000);
 
 
 
