@@ -16,6 +16,11 @@
 // }
 
 var user = localStorage.getItem("user");
+if (!user) { 
+  document.getElementById('inputMessage').disabled = true;
+} else {
+  document.getElementById('inputMessage').disabled = false;
+}
 window.onload = setTimeout(function(){
   if (!user) {
     // Ask for the username if there is none set already
@@ -25,6 +30,7 @@ window.onload = setTimeout(function(){
     } else {
       // Store it in the Local Storafe for future use
       localStorage.setItem('user', user)
+      document.getElementById('inputMessage').disabled = false;
     }
   }
 }, 10000);
