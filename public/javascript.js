@@ -16,19 +16,19 @@
 // }
 
 var user = localStorage.getItem("user");
-if (!user) {
-  // Ask for the username if there is none set already
-    // user = prompt('Choose a name:');
-    setTimeout(function(){
-      user = prompt('Choose a name:');
-    }, 2000);
+setTimeout(function(){
   if (!user) {
-    alert('We cannot work with you like that!');
-  } else {
-    // Store it in the Local Storafe for future use
-    localStorage.setItem('user', user)
+    // Ask for the username if there is none set already
+      user = prompt('Choose a name:');
+    if (!user) {
+      alert('We cannot work with you like that!');
+    } else {
+      // Store it in the Local Storafe for future use
+      localStorage.setItem('user', user)
+    }
   }
-}
+}, 2000);
+
 
 
 var socket = io();
