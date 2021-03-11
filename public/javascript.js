@@ -32,9 +32,14 @@ window.onload = setTimeout(function(){
       })
       .then((value) => {
         user = value
-        localStorage.setItem('user', user)
-        document.getElementById('inputMessage').disabled = false;
-        document.getElementById('buttonMessage').disabled = false;
+        if (!user) {
+          alert('We cannot work with you like that!');
+        } else {
+          // Store it in the Local Storafe for future use
+          localStorage.setItem('user', user)
+          document.getElementById('inputMessage').disabled = false;
+          document.getElementById('buttonMessage').disabled = false;
+        }
       });
     // if (!user) {
     //   alert('We cannot work with you like that!');
