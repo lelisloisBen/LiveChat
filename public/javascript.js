@@ -33,7 +33,8 @@ window.onload = setTimeout(function(){
       .then((value) => {
         user = value
         if (!user) {
-          alert('We cannot work with you like that!');
+          // alert('We cannot work with you like that!');
+          swal("Wrong!", "Please enter a name", "error");
         } else {
           // Store it in the Local Storafe for future use
           localStorage.setItem('user', user)
@@ -82,7 +83,8 @@ $('form').submit(function (e) {
   //   message: message
   // });
   if(document.getElementById("inputMessage").value.length == 0) {
-        alert("Message cannot be empty")
+        // alert("Message cannot be empty")
+        swal("Wrong!", "Message cannot be empty", "error");
     } else {
       socket.emit('message', {
         user: localStorage.getItem('user') || 'Incognito',
