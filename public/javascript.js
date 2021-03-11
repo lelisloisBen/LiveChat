@@ -51,7 +51,8 @@ $('form').submit(function (e) {
 
   // Send the message to the server
   socket.emit('message', {
-    user: cookie.get('user') || 'Anonymous',
+    // user: cookie.get('user') || 'Anonymous',
+    user: localStorage.setItem('user') || 'Incognito',
     message: message
   });
 
