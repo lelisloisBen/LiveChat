@@ -1,6 +1,7 @@
 // ./public/javascript.js
 
 // Get the current username from the cookies
+document.cookie = 'cross-site-cookie=bar; SameSite=Lax';
 var user = cookie.get('user');
 if (!user) {
 
