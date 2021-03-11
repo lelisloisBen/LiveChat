@@ -26,7 +26,13 @@ if (!user) {
 window.onload = setTimeout(function(){
   if (!user) {
     // Ask for the username if there is none set already
-      user = prompt('Choose a name:');
+      // user = prompt('Choose a name:');
+      swal("Choose a name:", {
+        content: "input",
+      })
+      .then((value) => {
+        user = value
+      });
     if (!user) {
       alert('We cannot work with you like that!');
     } else {
