@@ -67,7 +67,7 @@ $('form').submit(function (e) {
   //   user: localStorage.getItem('user') || 'Incognito',
   //   message: message
   // });
-  if(document.getElementById("question").value.length == 0) {
+  if(document.getElementById("buttonMessage").value.length == 0) {
         alert("Message cannot be empty")
     } else {
       socket.emit('message', {
