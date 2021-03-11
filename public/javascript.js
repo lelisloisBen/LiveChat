@@ -94,6 +94,7 @@ $('form').submit(function (e) {
   //     });
   //   }
 
+  // If the message is empty you cannot send socket
   if(document.getElementById("inputMessage").value.length != 0) {
     socket.emit('message', {
       user: localStorage.getItem('user') || 'Incognito',
