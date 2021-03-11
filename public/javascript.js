@@ -18,8 +18,10 @@
 var user = localStorage.getItem("user");
 if (!user) { 
   document.getElementById('inputMessage').disabled = true;
+  document.getElementById('buttonMessage').disabled = true;
 } else {
   document.getElementById('inputMessage').disabled = false;
+  document.getElementById('buttonMessage').disabled = false;
 }
 window.onload = setTimeout(function(){
   if (!user) {
@@ -31,6 +33,7 @@ window.onload = setTimeout(function(){
       // Store it in the Local Storafe for future use
       localStorage.setItem('user', user)
       document.getElementById('inputMessage').disabled = false;
+      document.getElementById('buttonMessage').disabled = false;
     }
   }
 }, 10000);
