@@ -1,3 +1,17 @@
+// Protect against Injection in input
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+}
+
+
 // ./public/javascript.js
 
 // Get the current username from the cookies
@@ -74,7 +88,8 @@ $('form').submit(function (e) {
   e.preventDefault();
 
   // Retrieve the message from the user
-  var message = $(e.target).find('input').val();
+  var rawMessage = $(e.target).find('input').val();
+  var message = escapeHtml(rawMessage);
 
   // Send the message to the server
   // socket.emit('message', {
