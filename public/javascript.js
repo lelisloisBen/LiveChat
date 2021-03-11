@@ -34,7 +34,7 @@ window.onload = setTimeout(function(){
         user = value
         if (!user) {
           // alert('We cannot work with you like that!');
-          swal("Wrong!", "Please enter a name", "error");
+          swal("WRONG!, You need a Name", "Please refresh page and enter a name", "error");
         } else {
           // Store it in the Local Storafe for future use
           localStorage.setItem('user', user)
