@@ -18,6 +18,7 @@
 var user = localStorage.getItem("user");
 if (!user) {
   // Ask for the username if there is none set already
+    // user = prompt('Choose a name:');
     setTimeout(function(){
       user = prompt('Choose a name:');
     }, 2000);
