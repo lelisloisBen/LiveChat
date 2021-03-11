@@ -31,6 +31,10 @@ h1, .user-count {
   padding: 20px 0;
 }
 
+.numb {
+  padding-left: 5px;
+}
+
 .chat {
   content: '';
   width: 100%;
