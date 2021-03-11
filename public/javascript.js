@@ -62,19 +62,13 @@ $('form').submit(function (e) {
   var message = $(e.target).find('input').val();
 
   // Send the message to the server
-  // socket.emit('message', {
-  //   // user: cookie.get('user') || 'Anonymous',
-  //   user: localStorage.getItem('user') || 'Incognito',
-  //   message: message
-  // });
-  if(document.getElementById("buttonMessage").value.length == 0) {
-        alert("Message cannot be empty")
-    } else {
-      socket.emit('message', {
-        user: localStorage.getItem('user') || 'Incognito',
-        message: message
-      });
-    }
+  socket.emit('message', {
+    // user: cookie.get('user') || 'Anonymous',
+    user: localStorage.getItem('user') || 'Incognito',
+    message: message
+  });
+  
+    
 
   // Clear the input and focus it for a new message
   e.target.reset();
