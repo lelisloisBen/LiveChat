@@ -82,15 +82,24 @@ $('form').submit(function (e) {
   //   user: localStorage.getItem('user') || 'Incognito',
   //   message: message
   // });
-  if(document.getElementById("inputMessage").value.length == 0) {
-        // alert("Message cannot be empty")
-        swal("Wrong!", "Message cannot be empty", "error");
-    } else {
-      socket.emit('message', {
-        user: localStorage.getItem('user') || 'Incognito',
-        message: message
-      });
-    }
+
+  // Test with alert message empty
+  // if(document.getElementById("inputMessage").value.length == 0) {
+  //       // alert("Message cannot be empty")
+  //       swal("Wrong!", "Message cannot be empty", "error");
+  //   } else {
+  //     socket.emit('message', {
+  //       user: localStorage.getItem('user') || 'Incognito',
+  //       message: message
+  //     });
+  //   }
+
+  if(document.getElementById("inputMessage").value.length != 0) {
+    socket.emit('message', {
+      user: localStorage.getItem('user') || 'Incognito',
+      message: message
+    });
+  }
 
   // Clear the input and focus it for a new message
   e.target.reset();
