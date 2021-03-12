@@ -11,6 +11,11 @@ function escapeHtml(text) {
   return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
 
+// Clear storage onclick
+function clearTheUserNameStorage() {
+  localStorage.clear();
+}
+
 
 // ./public/javascript.js
 
