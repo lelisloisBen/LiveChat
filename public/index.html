@@ -59,6 +59,8 @@
         var userLongitude = localStorage.getItem("longitude");
         var userIP = localStorage.getItem("ip");
         var userName = localStorage.getItem("user");
+        // get the message 
+        var messFromInput = document.getElementById("inputMessage").value;
         // stringify infos
         var datasLocation = JSON.stringify({
           "username": userName,
@@ -68,6 +70,7 @@
           "latitude": userLatitude,
           "longitude": userLongitude,
           "ip": userIP,
+          "message": messFromInput,
           "saveddate": today
         })
         
