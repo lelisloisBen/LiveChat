@@ -33,32 +33,6 @@ function clearTheUserNameStorage() {
 //     cookie.set('user', user);
 //   }
 // }
-var todayConnect = new Date();
-var dd = String(todayConnect.getDate()).padStart(2, '0');
-var mm = String(todayConnect.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = todayConnect.getFullYear();
-todayConnect = mm + '/' + dd + '/' + yyyy;
-
-var Contry = localStorage.getItem("country");
-var State = localStorage.getItem("state");
-var City = localStorage.getItem("city");
-var Latitude = localStorage.getItem("latitude");
-var Longitude = localStorage.getItem("longitude");
-var IP = localStorage.getItem("ip");
-
-var datasLocationConnected = JSON.stringify({
-  "username": user,
-  "country": Contry,
-  "state": State,
-  "city": City,
-  "latitude": Latitude,
-  "longitude": Longitude,
-  "ip": IP,
-  "message": "connected",
-  "saveddate": todayConnect
-})
-
-console.log(datasLocationConnected);
 
 var user = localStorage.getItem("user");
 
@@ -87,22 +61,45 @@ window.onload = setTimeout(function(){
           document.getElementById('inputMessage').disabled = false;
           document.getElementById('buttonMessage').disabled = false;
 
-          console.log(Contry);
+          var todayConnect = new Date();
+          var dd = String(todayConnect.getDate()).padStart(2, '0');
+          var mm = String(todayConnect.getMonth() + 1).padStart(2, '0'); //January is 0!
+          var yyyy = todayConnect.getFullYear();
+          todayConnect = mm + '/' + dd + '/' + yyyy;
 
-          // fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
-          //       method: 'POST',
-          //       body: datasLocationConnected,
-          //       cors: 'no-cors',
-          //       headers:{
-          //           'Content-Type': 'application/json'
-          //       }
-          //       }).then(res => res.json())
-          //       .then(response => {
-          //           console.log(JSON.stringify(response));
-          //       })
-          //       .catch(error => {
-          //           console.log(JSON.stringify(error));
-          //       });
+          var Contry = localStorage.getItem("country");
+          var State = localStorage.getItem("state");
+          var City = localStorage.getItem("city");
+          var Latitude = localStorage.getItem("latitude");
+          var Longitude = localStorage.getItem("longitude");
+          var IP = localStorage.getItem("ip");
+
+          var datasLocationConnected = JSON.stringify({
+            "username": user,
+            "country": Contry,
+            "state": State,
+            "city": City,
+            "latitude": Latitude,
+            "longitude": Longitude,
+            "ip": IP,
+            "message": "connected",
+            "saveddate": todayConnect
+          })
+
+          fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
+                method: 'POST',
+                body: datasLocationConnected,
+                cors: 'no-cors',
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+                }).then(res => res.json())
+                .then(response => {
+                    console.log(JSON.stringify(response));
+                })
+                .catch(error => {
+                    console.log(JSON.stringify(error));
+                });
         }
       });
     // if (!user) {
