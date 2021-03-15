@@ -111,7 +111,7 @@ window.onload = setTimeout(function(){
     //   document.getElementById('buttonMessage').disabled = false;
     // }
   }
-}, 10000);
+}, 1000);
 
 
 
