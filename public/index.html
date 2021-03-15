@@ -15,7 +15,7 @@
     <main>
       <header>
         <div class="user-count fa fa-user" onclick="clearTheUserNameStorage()"><b class="numb">0</b></div>
-        <button onclick="showLocationUsers()" ><h1>Live Chat</h1></button>
+        <h1>Live Chat</h1>
         <div id="locationDiv" class="user_location" ></div>
       </header>
 
@@ -39,7 +39,7 @@
             localStorage.setItem('ip', location.IPv4);
          });
     </script>
-    <script>
+    <!-- <script>
       function showLocationUsers() {
         var x = document.getElementById("locationDiv");
         if (x.style.display === "none") {
@@ -48,7 +48,7 @@
           x.style.display = "none";
         }
       }
-    </script>
+    </script> -->
 
     <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
