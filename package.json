@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/lelisloisBen/LiveChat#readme",
   "dependencies": {
+    "request": "^2.88.2",
     "server": "^1.0.0-beta.2"
   }
 }
