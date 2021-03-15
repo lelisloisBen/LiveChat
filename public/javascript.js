@@ -34,6 +34,8 @@ function clearTheUserNameStorage() {
 //   }
 // }
 
+clearTheUserNameStorage();
+
 var user = localStorage.getItem("user");
 
 if (!user) { 
