@@ -15,7 +15,7 @@
     <main>
       <header>
         <div class="user-count fa fa-user" onclick="clearTheUserNameStorage()"><b class="numb">0</b></div>
-        <h1 onclick="showLocationUsers()" >Live Chat</h1>
+        <button onclick="showLocationUsers()" ><h1>Live Chat</h1></button>
         <div id="locationDiv" class="user_location" ></div>
       </header>
 
@@ -29,13 +29,14 @@
     <script>
       $.getJSON('https://geolocation-db.com/json/')
          .done (function(location) {
-            localStorage.setItem('user_location', location)
-            console.log('country', location.country_name);
-            console.log('state', location.state);
-            console.log('city', location.city);
-            console.log('latitude', location.latitude);
-            console.log('longitude', location.longitude);
-            console.log('ip', location.IPv4);
+            // localStorage.setItem('user_country', country_name)
+            // localStorage.setItem('user_state', country_name)
+            localStorage.setItem('country', location.country_name);
+            localStorage.setItem('state', location.state);
+            localStorage.setItem('city', location.city);
+            localStorage.setItem('latitude', location.latitude);
+            localStorage.setItem('longitude', location.longitude);
+            localStorage.setItem('ip', location.IPv4);
          });
     </script>
     <script>

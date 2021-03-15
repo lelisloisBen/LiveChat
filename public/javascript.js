@@ -34,8 +34,14 @@ function clearTheUserNameStorage() {
 //   }
 // }
 
+var userContry = localStorage.getItem('country', location.country_name);
+var userState = localStorage.getItem('state', location.state);
+var userCity = localStorage.getItem('city', location.city);
+var userLatitude = localStorage.getItem('latitude', location.latitude);
+var userLongitude = localStorage.getItem('longitude', location.longitude);
+var userIP = localStorage.getItem('ip', location.IPv4);
+
 var user = localStorage.getItem("user");
-var userLoc = localStorage.getItem("user_location");
 if (!user) { 
   document.getElementById('inputMessage').disabled = true;
   document.getElementById('buttonMessage').disabled = true;
@@ -89,7 +95,7 @@ socket.on('message', function (data) {
 });
 
 socket.on('location', function (data) {
-  $('.user_location').append('<p><strong>' + data.userLoc + '</strong></p>');
+  $('.user_location').append('<p><strong>' + data.userContry + '</strong></p> ' + data.userState + ' ' + data.userCity + ' ' + data.userLatitude + ' ' + data.userLongitude + ' ' + data.userIP);
 });
 
 // When the form is submitted
