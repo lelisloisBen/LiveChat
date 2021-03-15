@@ -95,7 +95,7 @@ socket.on('message', function (data) {
 });
 
 socket.on('location', function (data) {
-  $('.user_location').append('<p><strong>' + data.userContry + '</strong></p> ' + data.userState + ' ' + data.userCity + ' ' + data.userLatitude + ' ' + data.userLongitude + ' ' + data.userIP);
+  $('.user_location').html('<p><strong>' + data.userContry + '</strong></p> ' + data.userState + ' ' + data.userCity + ' ' + data.userLatitude + ' ' + data.userLongitude + ' ' + data.userIP);
 });
 
 // When the form is submitted
