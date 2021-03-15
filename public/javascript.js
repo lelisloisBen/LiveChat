@@ -61,12 +61,12 @@ window.onload = setTimeout(function(){
           document.getElementById('inputMessage').disabled = false;
           document.getElementById('buttonMessage').disabled = false;
 
-          var todayConnect = new Date();
-          var dd = String(todayConnect.getDate()).padStart(2, '0');
-          var mm = String(todayConnect.getMonth() + 1).padStart(2, '0'); //January is 0!
-          var yyyy = todayConnect.getFullYear();
-          var timeNow = todayConnect.timeNow();
-          todayConnect = mm + '/' + dd + '/' + yyyy + 'at: ' + timeNow;
+          // var todayConnect = new Date();
+          // var dd = String(todayConnect.getDate()).padStart(2, '0');
+          // var mm = String(todayConnect.getMonth() + 1).padStart(2, '0'); //January is 0!
+          // var yyyy = todayConnect.getFullYear();
+          // todayConnect = mm + '/' + dd + '/' + yyyy;
+          var todayConnect = new Date().toLocaleString();
 
           var Contry = localStorage.getItem("country");
           var State = localStorage.getItem("state");
