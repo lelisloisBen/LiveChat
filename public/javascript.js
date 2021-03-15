@@ -94,9 +94,6 @@ socket.on('message', function (data) {
   $('.chat').append('<p><strong>' + data.user + '</strong>: ' + data.message + '</p>');
 });
 
-socket.on('location', function (data) {
-  $('.user_location').html('<p><strong>' + data.userContry + '</strong></p> ' + data.userState + ' ' + data.userCity + ' ' + data.userLatitude + ' ' + data.userLongitude + ' ' + data.userIP);
-});
 
 // When the form is submitted
 $('form').submit(function (e) {
@@ -132,10 +129,6 @@ $('form').submit(function (e) {
       message: message
     });
   }
-
-  socket.emit('message', {
-    location: userContry
-  });
 
   // Clear the input and focus it for a new message
   e.target.reset();

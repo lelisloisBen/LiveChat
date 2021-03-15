@@ -14,8 +14,4 @@ server([
     console.log(ctx.data);
     ctx.io.emit('message', ctx.data);
   }),
-  socket('location', ctx => {
-    console.log(ctx.data);
-    ctx.io.emit('location', ctx.data);
-  })
 ]);
