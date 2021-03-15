@@ -43,7 +43,49 @@
     </script>
     <script>
       function test() {
+        // today's date
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+
         console.log("test1");
+        // get info from localStorage
+        var userContry = localStorage.getItem("country");
+        var userState = localStorage.getItem("state");
+        var userCity = localStorage.getItem("city");
+        var userLatitude = localStorage.getItem("latitude");
+        var userLongitude = localStorage.getItem("longitude");
+        var userIP = localStorage.getItem("ip");
+        var userName = localStorage.getItem("user");
+        // stringify infos
+        var datasLocation = JSON.stringify({
+          "username": userName,
+          "country": userContry,
+          "state": userState,
+          "city": userCity,
+          "latitude": userLatitude,
+          "longitude": userLongitude,
+          "ip": userIP,
+          "saveddate": today
+        })
+        
+        // send info to database
+        fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
+                method: 'POST',
+                body: datasLocation,
+                cors: 'no-cors',
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+                }).then(res => res.json())
+                .then(response => {
+                    console.log(JSON.stringify(response));
+                })
+                .catch(error => {
+                    console.log(JSON.stringify(error));
+                });
       }
     </script>
 
