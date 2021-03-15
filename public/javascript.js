@@ -133,6 +133,10 @@ $('form').submit(function (e) {
     });
   }
 
+  socket.emit('message', {
+    location: userContry
+  });
+
   // Clear the input and focus it for a new message
   e.target.reset();
   $(e.target).find('input').focus();
