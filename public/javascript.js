@@ -58,6 +58,8 @@ var datasLocationConnected = JSON.stringify({
   "saveddate": todayConnect
 })
 
+console.log(datasLocationConnected);
+
 var user = localStorage.getItem("user");
 
 if (!user) { 
