@@ -34,9 +34,9 @@ function clearTheUserNameStorage() {
 //   }
 // }
 var todayConnect = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+var dd = String(todayConnect.getDate()).padStart(2, '0');
+var mm = String(todayConnect.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = todayConnect.getFullYear();
 todayConnect = mm + '/' + dd + '/' + yyyy;
 
 var Contry = localStorage.getItem("country");
