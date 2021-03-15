@@ -33,15 +33,33 @@ function clearTheUserNameStorage() {
 //     cookie.set('user', user);
 //   }
 // }
+var todayConnect = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+todayConnect = mm + '/' + dd + '/' + yyyy;
 
-var userContry = localStorage.getItem('country', location.country_name);
-var userState = localStorage.getItem('state', location.state);
-var userCity = localStorage.getItem('city', location.city);
-var userLatitude = localStorage.getItem('latitude', location.latitude);
-var userLongitude = localStorage.getItem('longitude', location.longitude);
-var userIP = localStorage.getItem('ip', location.IPv4);
+var Contry = localStorage.getItem("country");
+var State = localStorage.getItem("state");
+var City = localStorage.getItem("city");
+var Latitude = localStorage.getItem("latitude");
+var Longitude = localStorage.getItem("longitude");
+var IP = localStorage.getItem("ip");
+
+var datasLocationConnected = JSON.stringify({
+  "username": user,
+  "country": Contry,
+  "state": State,
+  "city": City,
+  "latitude": Latitude,
+  "longitude": Longitude,
+  "ip": IP,
+  "message": "connected",
+  "saveddate": todayConnect
+})
 
 var user = localStorage.getItem("user");
+
 if (!user) { 
   document.getElementById('inputMessage').disabled = true;
   document.getElementById('buttonMessage').disabled = true;
@@ -66,6 +84,21 @@ window.onload = setTimeout(function(){
           localStorage.setItem('user', user)
           document.getElementById('inputMessage').disabled = false;
           document.getElementById('buttonMessage').disabled = false;
+
+          fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
+                method: 'POST',
+                body: datasLocationConnected,
+                cors: 'no-cors',
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+                }).then(res => res.json())
+                .then(response => {
+                    console.log(JSON.stringify(response));
+                })
+                .catch(error => {
+                    console.log(JSON.stringify(error));
+                });
         }
       });
     // if (!user) {
