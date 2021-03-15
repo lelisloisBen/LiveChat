@@ -85,20 +85,22 @@ window.onload = setTimeout(function(){
           document.getElementById('inputMessage').disabled = false;
           document.getElementById('buttonMessage').disabled = false;
 
-          fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
-                method: 'POST',
-                body: datasLocationConnected,
-                cors: 'no-cors',
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-                }).then(res => res.json())
-                .then(response => {
-                    console.log(JSON.stringify(response));
-                })
-                .catch(error => {
-                    console.log(JSON.stringify(error));
-                });
+          console.log(datasLocationConnected);
+
+          // fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
+          //       method: 'POST',
+          //       body: datasLocationConnected,
+          //       cors: 'no-cors',
+          //       headers:{
+          //           'Content-Type': 'application/json'
+          //       }
+          //       }).then(res => res.json())
+          //       .then(response => {
+          //           console.log(JSON.stringify(response));
+          //       })
+          //       .catch(error => {
+          //           console.log(JSON.stringify(error));
+          //       });
         }
       });
     // if (!user) {
