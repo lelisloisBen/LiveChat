@@ -29,6 +29,7 @@
       <div id="locationDiv" class="user_location" ></div>
     </main>
     <script>
+      localStorage.removeItem("user");
       $.getJSON('https://geolocation-db.com/json/')
          .done (function(location) {
             // localStorage.setItem('user_country', country_name)
