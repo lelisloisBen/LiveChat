@@ -85,7 +85,7 @@ window.onload = setTimeout(function(){
           document.getElementById('inputMessage').disabled = false;
           document.getElementById('buttonMessage').disabled = false;
 
-          console.log(datasLocationConnected);
+          console.log(Contry);
 
           // fetch('https://headquarter-backend.herokuapp.com/saveMessagesFromLiveChat', {
           //       method: 'POST',
