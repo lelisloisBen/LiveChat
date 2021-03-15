@@ -23,7 +23,7 @@
 
       <form>
         <input id="inputMessage" type="text" placeholder="Message..." />
-        <button id="buttonMessage">Send</button>
+        <button onclick="test()" id="buttonMessage">Send</button>
       </form>
       <br>
       <div id="locationDiv" class="user_location" ></div>
@@ -41,16 +41,11 @@
             localStorage.setItem('ip', location.IPv4);
          });
     </script>
-    <!-- <script>
-      function showLocationUsers() {
-        var x = document.getElementById("locationDiv");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
+    <script>
+      function test() {
+        console.log("test1");
       }
-    </script> -->
+    </script>
 
     <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
