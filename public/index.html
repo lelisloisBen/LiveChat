@@ -23,7 +23,8 @@
 
       <form>
         <input id="inputMessage" type="text" placeholder="Message..." />
-        <button onclick="test()" id="buttonMessage">Send</button>
+        <!-- <button onclick="sendMessageToDatabase()" id="buttonMessage">Send</button> -->
+        <button id="buttonMessage">Send</button>
       </form>
       <br>
       <div id="locationDiv" class="user_location" ></div>
@@ -42,7 +43,7 @@
          });
     </script>
     <script>
-      function test() {
+      function sendMessageToDatabase() {
         // today's date
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');

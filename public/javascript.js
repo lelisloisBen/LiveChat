@@ -128,6 +128,7 @@ $('form').submit(function (e) {
       user: localStorage.getItem('user') || 'Incognito',
       message: message
     });
+    sendMessageToDatabase();
   }
 
   // Clear the input and focus it for a new message
