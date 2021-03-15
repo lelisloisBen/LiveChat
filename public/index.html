@@ -24,7 +24,17 @@
         <button id="buttonMessage">Send</button>
       </form>
     </main>
-
+    <script>
+      $.getJSON('https://geolocation-db.com/json/')
+         .done (function(location) {
+            console.log('country', location.country_name);
+            console.log('state', location.state);
+            console.log('city', location.city);
+            console.log('latitude', location.latitude);
+            console.log('longitude', location.longitude);
+            console.log('ip', location.IPv4);
+         });
+    </script>
 
     <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
