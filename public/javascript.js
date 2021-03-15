@@ -65,7 +65,7 @@ window.onload = setTimeout(function(){
           var dd = String(todayConnect.getDate()).padStart(2, '0');
           var mm = String(todayConnect.getMonth() + 1).padStart(2, '0'); //January is 0!
           var yyyy = todayConnect.getFullYear();
-          todayConnect = mm + '/' + dd + '/' + yyyy;
+          todayConnect = mm + '/' + dd + '/' + yyyy + 'at: ' + todayConnect.timeNow();
 
           var Contry = localStorage.getItem("country");
           var State = localStorage.getItem("state");
