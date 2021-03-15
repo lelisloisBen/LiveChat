@@ -15,7 +15,8 @@
     <main>
       <header>
         <div class="user-count fa fa-user" onclick="clearTheUserNameStorage()"><b class="numb">0</b></div>
-        <h1>Live Chat</h1>
+        <h1 onclick="showLocationUsers()" >Live Chat</h1>
+        <div id="locationDiv" class="user_location" ></div>
       </header>
 
       <section class="chat"></section>
@@ -28,6 +29,7 @@
     <script>
       $.getJSON('https://geolocation-db.com/json/')
          .done (function(location) {
+            localStorage.setItem('user_location', location)
             console.log('country', location.country_name);
             console.log('state', location.state);
             console.log('city', location.city);
@@ -35,6 +37,16 @@
             console.log('longitude', location.longitude);
             console.log('ip', location.IPv4);
          });
+    </script>
+    <script>
+      function showLocationUsers() {
+        var x = document.getElementById("locationDiv");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
     </script>
 
     <!-- Include jquery, cookies, socket.io (client-side) and your own code -->

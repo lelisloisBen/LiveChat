@@ -35,6 +35,7 @@ function clearTheUserNameStorage() {
 // }
 
 var user = localStorage.getItem("user");
+var userLoc = localStorage.getItem("user_location");
 if (!user) { 
   document.getElementById('inputMessage').disabled = true;
   document.getElementById('buttonMessage').disabled = true;
@@ -85,6 +86,10 @@ socket.on('count', function (data) {
 // it will be like { user: 'username', message: 'text' }
 socket.on('message', function (data) {
   $('.chat').append('<p><strong>' + data.user + '</strong>: ' + data.message + '</p>');
+});
+
+socket.on('location', function (data) {
+  $('.user_location').append('<p><strong>' + data.userLoc + '</strong></p>');
 });
 
 // When the form is submitted
